@@ -1,0 +1,62 @@
+{
+   "name": "Digital Wellbeing",
+   "version": "1.4.2",
+   "description": "Discover your browsing habits! Time tracking at its best.",
+   "manifest_version": 2,
+   "background": {
+      "scripts": [ "js/config.js", "js/fn.js", "js/storage-local.js", "background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "icon16.png",
+      "default_popup": "popup.html",
+      "default_title": "Digital Wellbeing"
+   },
+  "chrome_url_overrides" : {
+    "newtab": "myPage.html"
+  },
+  "content_scripts": [
+      {
+        "matches": [
+          "http://www.facebook.com/*",
+          "https://www.facebook.com/*"
+        ],
+        "js": ["intercept.js"]
+      },
+      {
+        "matches": [
+          "http://www.twitter.com/*",
+          "https://www.twitter.com/*",
+          "http://twitter.com/*",
+          "https://twitter.com/*"
+        ],
+        "js": ["twitter.js"]
+      },
+      {
+        "matches": [
+          "http://www.twitter.com/*",
+          "https://www.twitter.com/*",
+          "http://twitter.com/*",
+          "https://twitter.com/*"
+        ],
+        "js": ["twitter.js"]
+      },
+      {
+        "matches": [
+          "http://www.instagram.com/*",
+          "https://www.instagram.com/*",
+          "http://instagram.com/*",
+          "https://instagram.com/*"
+        ],
+        "js": ["instagram.js"]
+      }
+    ],
+   "icons":{
+    "128": "icon128.png",
+    "48": "icon48.png",
+    "16": "icon16.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo36TrxZBakQVOyDOPzz/wAm4nGiz2P/gjP2F9RPEyzwtvh1wlP35PKeuvspZmVtvb9QGxA5clL0y0vEXKiNC3C2bIR6diIYjipKan0D0hX2WFKnAd9OrCt6mGOp/6QxujMxp1p5EXXFdsnjMAKSM1Hb+Ihn4pllEDehV9c70u0wJBh7WOO8rpowtW095RbWnD3zuDdBlzZN9qJynG975yALhYViqeXF3ulc0xk9PplxfMPsxXw37nAECgY9ElYNKxdPrC6+ETfqrPkh5HttHRFWtTcdY5exChF2WWoGKzUU3XbPd6xUQb/um6Y9j8Wj0x1z0PPim9Ff62Bu2/M/exwIDAQAB",
+   "offline_enabled": true,
+   "optional_permissions": [ "\u003Call_urls>" ],
+   "permissions": [ "tabs", "idle", "storage", "unlimitedStorage"]
+}
